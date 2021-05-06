@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do root 'pages#home'
   devise_for :users, path:'', path_names: {sign_in: 'login', sign_out:'logout', sign_up: 'register'}
   resources :profiles
   resources :portfolios
