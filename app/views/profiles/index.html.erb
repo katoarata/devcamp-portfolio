@@ -1,0 +1,9 @@
+<h1>Profile Items</h1>
+
+
+<% @profile_items.each do |profile_item| %>
+	<p>	<%= profile_item.title %> </p>
+	<p>	<%= profile_item.subtitle %> </p>
+	<p>	<%= profile_item.body %> </p>
+	<%= profile_item.thumb_image if !profile_item.thumb_image.nil? %>
+<% end %>
