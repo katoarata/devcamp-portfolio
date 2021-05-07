@@ -22,14 +22,6 @@ ActiveRecord::Schema.define(version: 2021_05_06_084933) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "portfolios", force: :cascade do |t|
-    t.string "title"
-    t.string "subtitle"
-    t.text "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.string "title"
     t.string "subtitle"
