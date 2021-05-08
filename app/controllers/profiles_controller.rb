@@ -14,10 +14,8 @@ class ProfilesController < ApplicationController
 	    respond_to do |format|
 			if @profile_item.save
 				format.html { redirect_to 'http://127.0.0.1:3000/profiles/', notice: "Profile was successfully created." }
-				format.json { render :show, status: :created, location: @profile }
 			else
 				format.html { render :new, status: :unprocessable_entity }
-				format.json { render json: @profile.errors, status: :unprocessable_entity }
 			end
 	    end
 	end
@@ -31,15 +29,21 @@ class ProfilesController < ApplicationController
     	respond_to do |format|
 	      if @profile_item.update(params.require(:profile).permit(:title, :subtitle, :body))
 	        format.html { redirect_to 'http://127.0.0.1:3000/profiles/', notice: "Profile was successfully updated." }
-	        format.json { render :show, status: :ok, location: @profile }
 	      else
 	        format.html { render :edit, status: :unprocessable_entity }
-	        format.json { render json: @blog.errors, status: :unprocessable_entity }
 	      end
     	end
   	end
   	def show
   		@profile_item=Profile.find(params[:id])
+  	end
+
+  	def destroy
+  	@profile_item=Profile.find(params[:id])
+    @profile_item.destroy
+	    respond_to do |format|
+	      format.html { redirect_to profiles_url, notice: "Profile was successfully destroyed." }
+	    end
   	end
 end
 
