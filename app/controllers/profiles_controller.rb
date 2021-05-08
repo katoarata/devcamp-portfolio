@@ -28,15 +28,18 @@ class ProfilesController < ApplicationController
 
 	def update
 		@profile_item=Profile.find(params[:id])
-    respond_to do |format|
-      if @profile_item.update(params.require(:profile).permit(:title, :subtitle, :body))
-        format.html { redirect_to 'http://127.0.0.1:3000/profiles/', notice: "Profile was successfully updated." }
-        format.json { render :show, status: :ok, location: @profile }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+    	respond_to do |format|
+	      if @profile_item.update(params.require(:profile).permit(:title, :subtitle, :body))
+	        format.html { redirect_to 'http://127.0.0.1:3000/profiles/', notice: "Profile was successfully updated." }
+	        format.json { render :show, status: :ok, location: @profile }
+	      else
+	        format.html { render :edit, status: :unprocessable_entity }
+	        format.json { render json: @blog.errors, status: :unprocessable_entity }
+	      end
+    	end
+  	end
+  	def show
+  		@profile_item=Profile.find(params[:id])
+  	end
 end
 

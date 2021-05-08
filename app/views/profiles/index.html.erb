@@ -3,7 +3,7 @@
 <%= link_to "Create new Item", new_profile_path %>
 
 <% @profile_items.each do |profile_item| %>
-	<p>	<%= profile_item.title %> </p>
+	<p>	<%= link_to profile_item.title, profile_path(profile_item.id) %> </p>
 	<p>	<%= profile_item.subtitle %> </p>
 	<p>	<%= profile_item.body %> </p>
 	<%= image_tag profile_item.thumb_image unless profile_item.thumb_image.nil? %>
