@@ -1,7 +1,12 @@
 class ProfilesController < ApplicationController
 
 	def index
-		@profile_items=Profile.all
+		@profile_items=Profile.ruby_on_rails_profile_items
+	end
+
+	def angular
+		@angular_profile_items=Profile.angular
+		
 	end
 
 	def new
