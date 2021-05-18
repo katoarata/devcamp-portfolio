@@ -6,4 +6,12 @@ class Profile < ApplicationRecord
 	end
 
 	scope :ruby_on_rails_profile_items, ->{where(subtitle: "Ruby on Rails")}
+
+	after_initialize :set_defaults
+
+	def set_defaults
+		self.main_image ||=	"https://via.placeholder.com/150"
+		self.thumb_image ||= "https://via.placeholder.com/150"
+	end
 end
+

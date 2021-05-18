@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
 	def index
-		@profile_items=Profile.ruby_on_rails_profile_items
+		@profile_items=Profile.all
 	end
 
 	def angular
@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
 
 	    respond_to do |format|
 			if @profile_item.save
-				format.html { redirect_to 'http://127.0.0.1:3000/profiles/', notice: "Profile was successfully created." }
+				format.html { redirect_to 'http://127.0.0.1:5000/profiles/', notice: "Profile was successfully created." }
 			else
 				format.html { render :new, status: :unprocessable_entity }
 			end
@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
 		@profile_item=Profile.find(params[:id])
     	respond_to do |format|
 	      if @profile_item.update(params.require(:profile).permit(:title, :subtitle, :body))
-	        format.html { redirect_to 'http://127.0.0.1:3000/profiles/', notice: "Profile was successfully updated." }
+	        format.html { redirect_to 'http://127.0.0.1:5000/profiles/', notice: "Profile was successfully updated." }
 	      else
 	        format.html { render :edit, status: :unprocessable_entity }
 	      end
