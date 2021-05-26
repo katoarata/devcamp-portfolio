@@ -10,11 +10,12 @@ class ProfilesController < ApplicationController
 	end
 
 	def new
-		@profile_items=Profile.new
+		@profile_item=Profile.new
+        3.times{@profile_item.technologies.build}
 	end
 
 	def create
-    @profile_item=Profile.new(params.require(:profile).permit(:title, :subtitle, :body))
+    @profile_item=Profile.new(params.require(:profile).permit(:title, :subtitle, :body, technologies_attributes:[:name]))
 
 	    respond_to do |format|
 			if @profile_item.save
