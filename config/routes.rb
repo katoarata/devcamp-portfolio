@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 	root 'pages#home'
 	devise_for :users, path:'', path_names: {sign_in: 'login', sign_out:'logout', sign_up: 'register'}
 
-	resources :profiles
+	resources :profiles, except: [:show]
+	get 'angular-items', to: 'profiles#angular'
 	get 'profiles/:id', to: 'profiles#show', as: 'profile_show'
 
 	get 'pages/home'

@@ -4,16 +4,22 @@ class ProfilesController < ApplicationController
 		@profile_items=Profile.all
 	end
 
+	def angular
+		@angular_profile_items=Profile.angular
+		
+	end
+
 	def new
-		@profile_items=Profile.new
+		@profile_item=Profile.new
+        3.times{@profile_item.technologies.build}
 	end
 
 	def create
-    @profile_item=Profile.new(params.require(:profile).permit(:title, :subtitle, :body))
+    @profile_item=Profile.new(params.require(:profile).permit(:title, :subtitle, :body, technologies_attributes:[:name]))
 
 	    respond_to do |format|
 			if @profile_item.save
-				format.html { redirect_to 'http://127.0.0.1:3000/profiles/', notice: "Profile was successfully created." }
+				format.html { redirect_to 'http://127.0.0.1:5000/profiles/', notice: "Profile was successfully created." }
 			else
 				format.html { render :new, status: :unprocessable_entity }
 			end
@@ -28,7 +34,7 @@ class ProfilesController < ApplicationController
 		@profile_item=Profile.find(params[:id])
     	respond_to do |format|
 	      if @profile_item.update(params.require(:profile).permit(:title, :subtitle, :body))
-	        format.html { redirect_to 'http://127.0.0.1:3000/profiles/', notice: "Profile was successfully updated." }
+	        format.html { redirect_to 'http://127.0.0.1:5000/profiles/', notice: "Profile was successfully updated." }
 	      else
 	        format.html { render :edit, status: :unprocessable_entity }
 	      end
