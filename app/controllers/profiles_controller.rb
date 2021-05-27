@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def create
-    @profile_item=Profile.new(params.require(:profile).permit(:title, :subtitle, :body, technologies_attributes:[:name]))
+    @profile_item=Profile.new(profile_params)
 
 	    respond_to do |format|
 			if @profile_item.save
@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
 	def update
 		@profile_item=Profile.find(params[:id])
     	respond_to do |format|
-	      if @profile_item.update(params.require(:profile).permit(:title, :subtitle, :body))
+	      if @profile_item.update(profile_params)
 	        format.html { redirect_to 'http://127.0.0.1:5000/profiles/', notice: "Profile was successfully updated." }
 	      else
 	        format.html { render :edit, status: :unprocessable_entity }
@@ -51,5 +51,10 @@ class ProfilesController < ApplicationController
 	      format.html { redirect_to profiles_url, notice: "Profile was successfully destroyed." }
 	    end
   	end
+    
+      private def profile_params
+        params.require(:profile).permit(:title, :subtitle, :body, technologies_attributes: [:name])
+      end
+
 end
 
