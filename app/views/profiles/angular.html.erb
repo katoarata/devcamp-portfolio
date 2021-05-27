@@ -1,12 +1,12 @@
 <h1>Angular Profile Items</h1>
 
-<%= link_to "Create new Item", new_profile_path %>
+<%= link_to "Create new Item", new_profile_path if logged_in?(:site_admin) %>
 
 <% @angular_profile_items.each do |profile_item| %>
 	<p>	<%= link_to profile_item.title, profile_show_path(profile_item.id) %> </p>
 	<p>	<%= profile_item.subtitle %> </p>
 	<p>	<%= profile_item.body %> </p>
 	<%= image_tag profile_item.thumb_image unless profile_item.thumb_image.nil? %>
-	<%= link_to "Edit", edit_profile_path(profile_item.id) %>
-    <%= link_to 'Delete', profile_path(profile_item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+	<%= link_to "Edit", edit_profile_path(profile_item.id) if logged_in?(:site_admin) %>
+    <%= link_to 'Delete', profile_path(profile_item.id), method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>
 <% end %>

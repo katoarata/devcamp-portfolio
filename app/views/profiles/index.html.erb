@@ -1,6 +1,6 @@
 <h1>Profile Items</h1>
 
-<%= link_to "Create new Item", new_profile_path %>
+<%= link_to "Create new Item", new_profile_path if logged_in?(:site_admin)%>
 
 <% @profile_items.each do |profile_item| %>
 	<p>	<%= link_to profile_item.title, profile_show_path(profile_item.id) %> </p>
