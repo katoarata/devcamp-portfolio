@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
 	access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
-
+	layout "profile"
 	def index
 		@profile_items=Profile.all
 	end
