@@ -8,7 +8,6 @@ class ProfilesController < ApplicationController
 
 	def angular
 		@angular_profile_items=Profile.angular
-		
 	end
 
 	def new
