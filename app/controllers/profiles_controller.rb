@@ -29,6 +29,8 @@ class ProfilesController < ApplicationController
 
 	def edit
 		@profile_item=Profile.find(params[:id])
+		# 3.times{@profile_item.technologies.build}
+
 	end
 
 	def update
