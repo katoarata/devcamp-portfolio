@@ -14,12 +14,8 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-      <% if current_user.is_a?(GuestUser) %>
-      <%= link_to "register", new_user_registration_path%>
-      <%= link_to "login", new_user_session_path%>
-      <% else %>
-      <%= link_to "logout", destroy_user_session_path, method: :delete %>
-    <%end%>
+    <%=login_helper%>
+
     
     <%= yield %>
     <%= render "shared/nav", location:'bottom'%>
