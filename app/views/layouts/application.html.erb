@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= @page_title%></title>
     <meta name="keywords" content=<%= @seo_keywords%>>
     <%= csrf_meta_tags %>
@@ -9,15 +11,17 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+div
+    <body class="text-center">
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render "shared/nav", location:'top'%>
+      <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <%= render "shared/application_nav"%>
 
     <%=login_helper%>
     
     <%= yield %>
+    <%= @copyright%>
     <%= source_helper("application")%>
-  </body>
+  </div>
+</body>
 </html>
