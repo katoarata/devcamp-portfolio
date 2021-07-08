@@ -18,7 +18,7 @@
 
   <body>
     <%= render 'shared/profile_nav'%>
-    <%= render 'shared/profile_masthead'%>
+    <%= render 'shared/profile_masthead' unless logged_in?(:site_admin)%>
     <%= yield %>
     <%= render 'shared/profile_footer' %>
     <%= source_helper("application")%>
