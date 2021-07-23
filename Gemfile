@@ -55,3 +55,4 @@ gem 'jquery-rails'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 # pagination
 gem 'kaminari'
+gem 'bootstrap', '~> 4.0.0'
