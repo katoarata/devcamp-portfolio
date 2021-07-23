@@ -56,3 +56,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 # pagination
 gem 'kaminari'
 gem 'bootstrap', '~> 4.0.0'
+gem 'carrierwave', '~> 2.2', '>= 2.2.2'
+gem 'carrierwave-aws', '~> 1.5'
+gem 'mini_magick', '~> 4.11'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
