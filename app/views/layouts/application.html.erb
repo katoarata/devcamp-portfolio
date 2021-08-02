@@ -7,21 +7,26 @@
     <meta name="keywords" content=<%= @seo_keywords%>>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-div
-    <body class="text-center">
+</head>
+  <body class="text-center">
 
-      <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-    <%= render "shared/application_nav"%>
-
-    <%=login_helper%>
-    
-    <%= yield %>
-    <%= @copyright%>
-    <%= source_helper("application")%>
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <%# <div id="background"></div> %>
+      <%= video_tag(
+          'HardDrivePhotojpeg.mp4',
+          id:'background',
+          autoplay:true,
+          loop:true,
+          muted:true,
+          poster:'home_bg.png'
+      )
+      %>
+      <%= render "shared/application_nav"%>
+      <%= yield %>
+          <%= render "shared/application_footer"%>
+      <%= source_helper("application")%>
   </div>
 </body>
 </html>

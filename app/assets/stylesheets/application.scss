@@ -29,7 +29,6 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
 }
 
 body {
@@ -45,7 +44,7 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 55em;
 }
 
 
@@ -81,7 +80,7 @@ body {
   border-bottom-color: #fff;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 44em) {
   .masthead-brand {
     float: left;
   }
@@ -110,3 +109,34 @@ body {
   color: rgba(255, 255, 255, .5);
 }
 
+.card{
+  color:black;
+  text-align:left;
+}
+.auth-links a{
+  color:black;
+}
+.login > .card{
+  width:22rem;
+  margin: 0 auto;
+  float:none;
+  margin-bottom:10px;
+}
+
+#background{
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform:translateX(-50%) translateY(-50%);
+  min-width:100%;
+  min-height: 100%;
+  width:auto;
+  height:auto;
+  z-index:-100;
+  background:image-url('home_bg.png') no-repeat;
+  background-size:cover;
+}
+
+.app-footer{
+  color:white;
+}

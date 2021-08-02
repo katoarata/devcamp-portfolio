@@ -37,3 +37,4 @@ yarn-debug.log*
 
 #ignore credentials.yml
 /config/credentials.yml.enc
+.env

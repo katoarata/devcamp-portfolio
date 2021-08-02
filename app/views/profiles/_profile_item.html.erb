@@ -1,6 +1,15 @@
-<p>	<%= link_to profile_item.title, profile_show_path(profile_item.id) %> </p>
-<p>	<%= profile_item.subtitle %> </p>
-<p>	<%= profile_item.body %> </p>
-<%= image_tag profile_item.thumb_image unless profile_item.thumb_image.nil? %>
-<%= link_to "Edit", edit_profile_path(profile_item.id) %>
-<%= link_to 'Delete', profile_path(profile_item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+        <%= image_tag profile_img(profile_item.thumb_image.url,'thumb') %>
+        <div class="card-body">
+            <p>	<%= link_to profile_item.title, profile_show_path(profile_item.id) %> </p> <%= profile_item.subtitle %>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <%= link_to "Edit", edit_profile_path(profile_item.id), class:"btn" %>
+                    <%= link_to 'Delete', profile_path(profile_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

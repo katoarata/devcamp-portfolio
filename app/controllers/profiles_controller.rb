@@ -52,7 +52,7 @@ class ProfilesController < ApplicationController
   	end
     
     private def profile_params
-    	params.require(:profile).permit(:title, :subtitle, :body, technologies_attributes: [:name])
+    	params.require(:profile).permit(:title, :subtitle, :thumb_image, :main_image, :body, technologies_attributes: [:name])
     end
 	
 	def set_profile_item

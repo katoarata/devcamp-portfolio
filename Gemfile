@@ -51,5 +51,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.8'
 gem 'friendly_id', '~> 5.4.0'
 gem 'petergate', '~> 2.0'
-gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'jquery-rails'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+# pagination
+gem 'kaminari'
+gem 'bootstrap', '~> 4.0.0'
+gem 'carrierwave', '~> 2.2', '>= 2.2.2'
+gem 'carrierwave-aws', '~> 1.5'
+gem 'mini_magick', '~> 4.11'
+gem 'dotenv-rails', groups: [:development, :test]
+
